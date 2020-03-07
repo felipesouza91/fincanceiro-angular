@@ -18,7 +18,11 @@ export class AppComponent {
   }
 
   exibindoNavbar() {
-    return this.router.url !== '/login';
+    const router = this.router.url;
+    if (router === '/login' || router === '/cadastro' ) {
+      return false;
+    } 
+    return true;
   }
 
 }

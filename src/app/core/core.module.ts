@@ -17,16 +17,21 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
 import { NaoAutorizadoComponent } from './nao-autorizado.component';
 import { AuthGuard } from 'app/seguranca/auth.guard';
+import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
+import { FormsModule } from '@angular/forms';
+import { InputTextModule, ButtonModule } from 'primeng/primeng';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
-
+    FormsModule,
+    InputTextModule,
+    ButtonModule,
     ToastyModule.forRoot(),
     ConfirmDialogModule,
   ],
-  declarations: [NavbarComponent, PaginaNaoEncontradaComponent, NaoAutorizadoComponent],
+  declarations: [NavbarComponent, PaginaNaoEncontradaComponent, NaoAutorizadoComponent, CadastroUsuarioComponent],
   exports: [
     NavbarComponent,
     ToastyModule,

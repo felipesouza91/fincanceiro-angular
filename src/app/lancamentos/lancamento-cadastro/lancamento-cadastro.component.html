@@ -58,11 +58,13 @@
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
-        <label>Pessoa</label>
-        <p-dropdown name="pessoa" [options]="pessoas" placeholder="Selecione"
+        <label>Conta</label>
+        <p-dropdown placeholder="Selecione"
+          [autoWidth]="false"></p-dropdown>
+       <!--<p-dropdown name="conta" [options]="pessoas" placeholder="Selecione"
           [autoWidth]="false" [filter]="true"
-          [(ngModel)]="lancamento.pessoa.codigo"
-          required></p-dropdown>
+          [(ngModel)]="lancamento.conta.codigo"
+          required></p-dropdown>--> 
       </div>
 
       <div class="ui-g-12 ui-fluid">

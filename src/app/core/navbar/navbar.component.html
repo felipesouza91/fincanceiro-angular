@@ -10,13 +10,17 @@
 
   <ul class="navbar-menu" [hidden]="!exibindoMenu">
     <li class="navbar-usuario">{{auth.jwtPayload?.nome}}</li>
-    <li class="navbar-menuitem" routerLinkActive="ativo"
-      *ngIf="auth.temPermisao('ROLE_PESQUISAR_LANCAMENTO')">
+    <li class="navbar-menuitem" routerLinkActive="ativo">
         <a routerLink="/lancamentos">Lançamentos</a>
     </li>
-    <li class="navbar-menuitem" routerLinkActive="ativo"
-    *ngIf="auth.temPermisao('ROLE_PESQUISAR_PESSOA')">
-      <a routerLink="/pessoas">Pessoas</a>
+    <li class="navbar-menuitem" routerLinkActive="ativo">
+      <a routerLink="/contas">Contas</a>
+    </li>
+    <li class="navbar-menuitem" routerLinkActive="ativo">
+      <a routerLink="/categorias">Categorias</a>
+    </li>
+    <li class="navbar-menuitem" routerLinkActive="ativo">
+      <a routerLink="/metas">Metas</a>
     </li>
     <li class="navbar-menuitem" (click)="logout()"><a href="javascript:;">Logout</a></li>
   </ul>

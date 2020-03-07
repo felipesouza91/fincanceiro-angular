@@ -5,11 +5,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { PessoasModule } from './pessoas/pessoas.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { SegurancaModule } from './seguranca/seguranca.module';
 import { AppRoutingModule } from './app-routing.module';
-
+import { ContaModule } from './conta/conta.module';
+import { CategoriasModule } from './categorias/categorias.module';
+import { MetasModule } from './metas/metas.module';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +22,9 @@ import { AppRoutingModule } from './app-routing.module';
 
     CoreModule,
     LancamentosModule,
-    PessoasModule,
+    ContaModule,
+    CategoriasModule,
+    MetasModule,
     SegurancaModule,
     AppRoutingModule
   ],
