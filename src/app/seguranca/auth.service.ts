@@ -45,7 +45,7 @@ export class AuthService {
   }
 
   temPermisao(permisao: string) {
-    return this.jwtPayload && this.jwtPayload.authorities.includes(permisao) ;
+    return this.jwtPayload ;
   }
 
   obterNovoAccessToken(): Promise<void> {

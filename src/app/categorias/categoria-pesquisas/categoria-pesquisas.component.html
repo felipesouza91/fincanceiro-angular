@@ -1,7 +1,7 @@
 <div class="container">
   <div class="ui-g">
 
-    <form autocomplete="off" (ngSubmit)="pesquisar()">
+    <form autocomplete="off" (ngSubmit)="pesquisar()" [formGroup]="formPesquisa">
 
       <div class="ui-g-12">
         <h1>Categorias</h1>
@@ -9,7 +9,7 @@
 
       <div class="ui-g-12 ui-fluid">
         <label>Descrição</label>
-        <input pInputText type="text" name="descricao">
+        <input pInputText type="text" formControlName="nome">
       </div>
       <div class="ui-g-12">
         <button pButton type="submit" label="Pesquisar"></button>

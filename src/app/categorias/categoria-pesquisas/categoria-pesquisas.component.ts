@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategoriaService } from '../categoria.service';
+import { FormGroup, FormControlName, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-categoria-pesquisas',
@@ -7,6 +8,8 @@ import { CategoriaService } from '../categoria.service';
   styleUrls: ['./categoria-pesquisas.component.css']
 })
 export class CategoriaPesquisasComponent implements OnInit {
+
+  formPesquisa: FormGroup;
 
   categorias = [];
 
@@ -16,10 +19,24 @@ export class CategoriaPesquisasComponent implements OnInit {
 
   ngOnInit() {
     this.iniciarCategoria();
+    this.iniciaFormulario();
   }
 
   iniciarCategoria(){
     this.categoriaService.listarTodas()
-      .then(resp => this.categorias = resp);
+      .then(resp => {
+        console.log(resp);
+        this.categorias = resp
+      } );
+  }
+
+  pesquisar() {
+    console.log(this.formPesquisa.value);
+  }
+
+  iniciaFormulario() {
+    this.formPesquisa = new FormGroup({
+      nome: new FormControl()
+    });
   }
 }

@@ -10,7 +10,6 @@ import { JwtHelper } from 'angular2-jwt';
 
 import { AuthService } from './../seguranca/auth.service';
 import { ErrorHandlerService } from './error-handler.service';
-import { PessoaService } from './../pessoas/pessoa.service';
 import { LancamentoService } from './../lancamentos/lancamento.service';
 import { CategoriaService } from './../categorias/categoria.service';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -39,7 +38,7 @@ import { InputTextModule, ButtonModule } from 'primeng/primeng';
   ],
   providers: [
     LancamentoService,
-    PessoaService,
+
     CategoriaService,
     ErrorHandlerService,
     AuthService,
