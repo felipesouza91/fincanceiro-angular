@@ -19,6 +19,8 @@ import { AuthGuard } from 'app/seguranca/auth.guard';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
 import { FormsModule } from '@angular/forms';
 import { InputTextModule, ButtonModule } from 'primeng/primeng';
+import { ContaService } from 'app/conta/conta.service';
+import { MetaService } from 'app/metas/metas.service';
 
 @NgModule({
   imports: [
@@ -38,11 +40,11 @@ import { InputTextModule, ButtonModule } from 'primeng/primeng';
   ],
   providers: [
     LancamentoService,
-
+    ContaService,
     CategoriaService,
     ErrorHandlerService,
     AuthService,
-
+    MetaService,
     ConfirmationService,
     JwtHelper,
     Title,

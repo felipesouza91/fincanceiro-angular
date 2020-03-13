@@ -5,7 +5,8 @@ import { CategoriaCadastroComponent } from './categoria-cadastro/categoria-cadas
 import { CategoriasRoutingModule } from './categorias-routing.module';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule, ButtonModule, DataTableModule, SelectButtonModule, DropdownModule,
-  ToggleButtonModule, SharedModule } from 'primeng/primeng';
+  ToggleButtonModule } from 'primeng/primeng';
+import { SharedModule } from 'app/shared/shared.module';
 @NgModule({
   imports: [
     CommonModule,

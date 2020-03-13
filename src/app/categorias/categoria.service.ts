@@ -14,8 +14,9 @@ export class CategoriaService {
     this.categoriasUrl = `${environment.apiUrl}/categorias`
   }
 
-  listarTodas(): Promise<any> {
-    return this.http.get(this.categoriasUrl)
+  listarTodas(nome = ''): Promise<any> {
+    nome = nome === null ? '' : nome;
+    return this.http.get(this.categoriasUrl , {params: {'nome': nome}})
       .toPromise()
       .then(response => response.json());
   }
@@ -32,7 +33,8 @@ export class CategoriaService {
       .then(response => response.json() as Categoria);
   }
 
-  atualizar(codigo:number, categoria: Categoria): Promise<Categoria> {
+  atualizar(codigo: number, categoria: Categoria): Promise<Categoria> {
+
     return this.http.put(`${this.categoriasUrl}/${codigo}`, categoria)
       .toPromise()
       .then(response => response.json() as Categoria);
@@ -41,6 +43,6 @@ export class CategoriaService {
   excluir(codigo: number): Promise<void> {
     return this.http.delete(`${this.categoriasUrl}/${codigo}`)
       .toPromise()
-      .then(()=> null);
+      .then(() => null);
   }
 }

@@ -1,5 +1,5 @@
 <div class="container">
-  <!--<form > -->
+  <form autocomplete="off" (ngSubmit)="salvar()" [formGroup]="formCadastro" #f>
 
     <div class="ui-g">
       <div class="ui-g-12">
@@ -7,11 +7,11 @@
       </div>
       <div class="ui-g-10 ui-fluid">
         <label>Descrição</label>
-        <input pInputText type="text" name="descricao">
+        <input pInputText type="text" formControlName="nome">
       </div>
       <div class="ui-g-12">
-        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="submit" label="Salvar" [disabled]="formCadastro.invalid"></button>
       </div>
     </div>
-  <!--</form > -->
+  </form > 
 </div>

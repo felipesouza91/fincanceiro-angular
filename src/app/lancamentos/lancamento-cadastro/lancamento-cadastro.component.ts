@@ -9,6 +9,7 @@ import { ErrorHandlerService } from './../../core/error-handler.service';
 import { CategoriaService } from './../../categorias/categoria.service';
 import { Lancamento } from './../../core/model';
 import { LancamentoService } from './../lancamento.service';
+import { ContaService } from 'app/conta/conta.service';
 
 @Component({
   selector: 'app-lancamento-cadastro',
@@ -23,12 +24,12 @@ export class LancamentoCadastroComponent implements OnInit {
   ];
 
   categorias = [];
-  pessoas = [];
+  contas = [];
   lancamento = new Lancamento();
 
   constructor(
     private categoriaService: CategoriaService,
-
+    private contasService: ContaService,
     private lancamentoService: LancamentoService,
     private toasty: ToastyService,
     private errorHandler: ErrorHandlerService,
@@ -38,16 +39,13 @@ export class LancamentoCadastroComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.carregarCategorias();
+    this.carregarConta();
     const codigoLancamento = this.route.snapshot.params['codigo'];
-
     this.title.setTitle('Novo lançamento');
-
     if (codigoLancamento) {
       this.carregarLancamento(codigoLancamento);
     }
-
-    this.carregarCategorias();
-
   }
 
   get editando() {
@@ -103,6 +101,15 @@ export class LancamentoCadastroComponent implements OnInit {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
+  carregarConta() {
+    return this.contasService.listarTodas()
+    .then(response => {
+      this.contas = response
+        .map(c => ({ label: c.descricao, value: c.codigo }));
+    })
+    .catch(erro => this.errorHandler.handle(erro));
+  }
+
   novo(form: FormControl) {
     form.reset();
 
@@ -117,4 +124,5 @@ export class LancamentoCadastroComponent implements OnInit {
     this.title.setTitle(`Edição de lançamento: ${this.lancamento.descricao}`);
   }
 
+  
 }

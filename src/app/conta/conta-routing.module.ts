@@ -18,6 +18,12 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { roles: ['5']}
   },
+  {
+    path: 'contas/:codigo',
+    component: ContaCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['5']}
+  },
 ];
 
 @NgModule({

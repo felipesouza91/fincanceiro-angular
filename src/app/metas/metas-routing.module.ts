@@ -18,6 +18,12 @@ const routes: Routes = [
     component: MetasCadastroComponent,
     canActivate: [AuthGuard],
     data: { roles: ['6']}
+  },
+  {
+    path: 'metas/:codigo',
+    component: MetasCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['6']}
   }
 ];
 

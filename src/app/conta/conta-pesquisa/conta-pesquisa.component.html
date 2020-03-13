@@ -1,7 +1,7 @@
 <div class="container">
   <div class="ui-g">
 
-    <form autocomplete="off" (ngSubmit)="pesquisar()">
+    <form autocomplete="off" (ngSubmit)="pesquisar()" [formGroup]="formPesquisa">
 
       <div class="ui-g-12">
         <h1>Contas</h1>
@@ -9,7 +9,7 @@
 
       <div class="ui-g-12 ui-fluid">
         <label>Descrição</label>
-        <input pInputText type="text" name="descricao">
+        <input pInputText type="text" name="descricao" formControlName="descricao">
       </div>
       <div class="ui-g-12">
         <button pButton type="submit" label="Pesquisar"></button>
@@ -22,14 +22,18 @@
       <p-dataTable [value]="contas" [responsive]="true"
           emptyMessage="Nenhum lançamento encontrado" #tabela>
         <p-column field="descricao" header="Descrição"></p-column>
-        <p-column field="status" header="Status"></p-column>
-        <p-column styleClass="col-acoes">
-            <ng-template let-lanc="rowData" pTemplate="body">
-              <a pButton icon="fa-pencil" pTooltip="Editar"
-                tooltipPosition="top"></a>
-              <button pButton icon="fa-trash"></button>
-            </ng-template>
+        <p-column field="status" header="Status">
+          <ng-template let-data="rowData" pTemplate="body">
+            <span>{{ data.ativo ? 'Ativo' : 'Inativo' }}</span>
+        </ng-template>
         </p-column>
+        <p-column styleClass="col-acoes">
+          <ng-template let-data="rowData" pTemplate="body">
+            <a pButton icon="fa-pencil" pTooltip="Editar"
+              tooltipPosition="top"  [routerLink]="['/contas', data.codigo]"></a>
+            <button pButton icon="fa-trash" (click)="confirmarExclusao(data)"></button>
+          </ng-template>
+      </p-column>
       </p-dataTable>
     </div>
 

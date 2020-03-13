@@ -17,6 +17,12 @@ const routes: Routes = [
     component: CategoriaCadastroComponent,
     canActivate: [AuthGuard],
     data: { roles: ['6']}
+  },
+  {
+    path: 'categorias/:codigo',
+    component: CategoriaCadastroComponent,
+    canActivate: [AuthGuard],
+    data: { roles: ['8']}
   }
 ];
 
