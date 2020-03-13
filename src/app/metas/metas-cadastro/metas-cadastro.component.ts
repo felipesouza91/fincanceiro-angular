@@ -16,6 +16,7 @@ import { CategoriaService } from 'app/categorias/categoria.service';
 })
 export class MetasCadastroComponent implements OnInit {
 
+  editando = false;
   formCadastro: FormGroup;
   categorias = [];
   codigo: number;
@@ -36,6 +37,7 @@ export class MetasCadastroComponent implements OnInit {
     this.title.setTitle('Nova meta');
 
     if (this.codigo) {
+      this.editando = true;
       this.carregarLancamento(this.codigo);
     }
     

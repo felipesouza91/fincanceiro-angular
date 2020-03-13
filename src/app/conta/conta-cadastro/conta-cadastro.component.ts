@@ -13,7 +13,7 @@ import { Conta } from 'app/core/model';
   styleUrls: ['./conta-cadastro.component.css']
 })
 export class ContaCadastroComponent implements OnInit {
-
+  editando = false;
   formCadastro: FormGroup;
   codigo: number;
   constructor(
@@ -32,6 +32,7 @@ export class ContaCadastroComponent implements OnInit {
     this.title.setTitle('Novo lançamento');
 
     if (this.codigo) {
+      this.editando = true;
       this.carregarLancamento(this.codigo);
     }
 

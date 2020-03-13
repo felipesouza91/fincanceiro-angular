@@ -13,6 +13,7 @@ import { ErrorHandlerService } from 'app/core/error-handler.service';
 })
 export class CategoriaPesquisasComponent implements OnInit {
 
+  
   formPesquisa: FormGroup;
   @ViewChild('tabela') grid;
   categorias = [];

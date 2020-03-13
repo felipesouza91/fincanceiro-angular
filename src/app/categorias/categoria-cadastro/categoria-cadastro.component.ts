@@ -14,6 +14,7 @@ import { Categoria } from 'app/core/model';
 })
 export class CategoriaCadastroComponent implements OnInit {
 
+  editando = false;
   formCadastro: FormGroup;
   codigo: number;
   constructor(
@@ -32,6 +33,7 @@ export class CategoriaCadastroComponent implements OnInit {
     this.title.setTitle('Novo lançamento');
 
     if (this.codigo) {
+      this.editando = true;
       this.carregarLancamento(this.codigo);
     }
 
