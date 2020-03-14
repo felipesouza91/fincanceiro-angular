@@ -4,6 +4,13 @@ export class Categoria {
   nome: string;
 }
 
+export class Usuario {
+  codigo: number;
+  nome: string;
+  email: string;
+  senha: string;
+}
+
 export class Conta {
   codigo: number;
   descricao: string;

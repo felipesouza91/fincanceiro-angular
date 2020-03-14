@@ -17,15 +17,17 @@ import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component'
 import { NaoAutorizadoComponent } from './nao-autorizado.component';
 import { AuthGuard } from 'app/seguranca/auth.guard';
 import { CadastroUsuarioComponent } from './cadastro-usuario/cadastro-usuario.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule, ButtonModule } from 'primeng/primeng';
 import { ContaService } from 'app/conta/conta.service';
 import { MetaService } from 'app/metas/metas.service';
+import { CadastroService } from './cadastro.service';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    ReactiveFormsModule,
     FormsModule,
     InputTextModule,
     ButtonModule,
@@ -41,6 +43,7 @@ import { MetaService } from 'app/metas/metas.service';
   providers: [
     LancamentoService,
     ContaService,
+    CadastroService,
     CategoriaService,
     ErrorHandlerService,
     AuthService,
